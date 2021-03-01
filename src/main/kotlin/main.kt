@@ -200,7 +200,6 @@ data class Log(override val x: Expr, override val y: Expr) : BinOp(x, y) {
         }
     }
 
-    // ? log_y (x) dz = (ln x / ln y) dz =
     override fun diff(variable: Variable): Expr =
         when {
             !x.hasVariable(variable) -> UnMinus(Divide(Ln(x), Multiply(y, Ln(y))))
