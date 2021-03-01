@@ -60,8 +60,6 @@ data class Plus(override val x: Expr, override val y: Expr) : BinOp(x, y) {
         (other is Plus) && ((x == other.x && y == other.y) || (x == other.y && y == other.x))
 
     override fun hashCode(): Int = x.hashCode() + y.hashCode()
-
-    override fun toString(): String = "($x) + ($y)"
 }
 
 data class Minus(override val x: Expr, override val y: Expr) : BinOp(x, y) {
